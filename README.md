@@ -19,25 +19,25 @@
 ## Raw 链接
 
 ```text
-https://raw.githubusercontent.com/chiyongtan/ruleset/main/important-domain.yaml
-https://raw.githubusercontent.com/chiyongtan/ruleset/main/important-ip.yaml
-https://raw.githubusercontent.com/chiyongtan/ruleset/main/direct-domain.yaml
-https://raw.githubusercontent.com/chiyongtan/ruleset/main/direct-ip.yaml
-https://raw.githubusercontent.com/chiyongtan/ruleset/main/btc-domain.yaml
-https://raw.githubusercontent.com/chiyongtan/ruleset/main/btc-ip.yaml
-https://raw.githubusercontent.com/chiyongtan/ruleset/main/decide-domain.yaml
+https://raw.githubusercontent.com/lurenyv/ruleset/main/important-domain.yaml
+https://raw.githubusercontent.com/lurenyv/ruleset/main/important-ip.yaml
+https://raw.githubusercontent.com/lurenyv/ruleset/main/direct-domain.yaml
+https://raw.githubusercontent.com/lurenyv/ruleset/main/direct-ip.yaml
+https://raw.githubusercontent.com/lurenyv/ruleset/main/btc-domain.yaml
+https://raw.githubusercontent.com/lurenyv/ruleset/main/btc-ip.yaml
+https://raw.githubusercontent.com/lurenyv/ruleset/main/decide-domain.yaml
 ```
 
 jsDelivr 备用：
 
 ```text
-https://cdn.jsdelivr.net/gh/chiyongtan/ruleset@main/important-domain.yaml
-https://cdn.jsdelivr.net/gh/chiyongtan/ruleset@main/important-ip.yaml
-https://cdn.jsdelivr.net/gh/chiyongtan/ruleset@main/direct-domain.yaml
-https://cdn.jsdelivr.net/gh/chiyongtan/ruleset@main/direct-ip.yaml
-https://cdn.jsdelivr.net/gh/chiyongtan/ruleset@main/btc-domain.yaml
-https://cdn.jsdelivr.net/gh/chiyongtan/ruleset@main/btc-ip.yaml
-https://cdn.jsdelivr.net/gh/chiyongtan/ruleset@main/decide-domain.yaml
+https://cdn.jsdelivr.net/gh/lurenyv/ruleset@main/important-domain.yaml
+https://cdn.jsdelivr.net/gh/lurenyv/ruleset@main/important-ip.yaml
+https://cdn.jsdelivr.net/gh/lurenyv/ruleset@main/direct-domain.yaml
+https://cdn.jsdelivr.net/gh/lurenyv/ruleset@main/direct-ip.yaml
+https://cdn.jsdelivr.net/gh/lurenyv/ruleset@main/btc-domain.yaml
+https://cdn.jsdelivr.net/gh/lurenyv/ruleset@main/btc-ip.yaml
+https://cdn.jsdelivr.net/gh/lurenyv/ruleset@main/decide-domain.yaml
 ```
 
 ## 主配置示例
@@ -50,7 +50,7 @@ rule-providers:
     format: yaml
     interval: 3600
     path: ./ruleset/important-domain.yaml
-    url: https://raw.githubusercontent.com/chiyongtan/ruleset/main/important-domain.yaml
+    url: https://raw.githubusercontent.com/lurenyv/ruleset/main/important-domain.yaml
 
   important-ip:
     type: http
@@ -58,7 +58,7 @@ rule-providers:
     format: yaml
     interval: 3600
     path: ./ruleset/important-ip.yaml
-    url: https://raw.githubusercontent.com/chiyongtan/ruleset/main/important-ip.yaml
+    url: https://raw.githubusercontent.com/lurenyv/ruleset/main/important-ip.yaml
 
   direct-domain:
     type: http
@@ -66,7 +66,7 @@ rule-providers:
     format: yaml
     interval: 3600
     path: ./ruleset/direct-domain.yaml
-    url: https://raw.githubusercontent.com/chiyongtan/ruleset/main/direct-domain.yaml
+    url: https://raw.githubusercontent.com/lurenyv/ruleset/main/direct-domain.yaml
 
   direct-ip:
     type: http
@@ -74,7 +74,7 @@ rule-providers:
     format: yaml
     interval: 3600
     path: ./ruleset/direct-ip.yaml
-    url: https://raw.githubusercontent.com/chiyongtan/ruleset/main/direct-ip.yaml
+    url: https://raw.githubusercontent.com/lurenyv/ruleset/main/direct-ip.yaml
 
   btc-domain:
     type: http
@@ -82,7 +82,7 @@ rule-providers:
     format: yaml
     interval: 3600
     path: ./ruleset/btc-domain.yaml
-    url: https://raw.githubusercontent.com/chiyongtan/ruleset/main/btc-domain.yaml
+    url: https://raw.githubusercontent.com/lurenyv/ruleset/main/btc-domain.yaml
 
   btc-ip:
     type: http
@@ -90,7 +90,7 @@ rule-providers:
     format: yaml
     interval: 3600
     path: ./ruleset/btc-ip.yaml
-    url: https://raw.githubusercontent.com/chiyongtan/ruleset/main/btc-ip.yaml
+    url: https://raw.githubusercontent.com/lurenyv/ruleset/main/btc-ip.yaml
 
   decide:
     type: http
@@ -98,7 +98,7 @@ rule-providers:
     format: yaml
     interval: 3600
     path: ./ruleset/decide-domain.yaml
-    url: https://raw.githubusercontent.com/chiyongtan/ruleset/main/decide-domain.yaml
+    url: https://raw.githubusercontent.com/lurenyv/ruleset/main/decide-domain.yaml
 
 rules:
   - RULE-SET,decide,选择节点
