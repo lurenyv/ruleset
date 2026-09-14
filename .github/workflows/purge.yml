@@ -2,6 +2,7 @@ name: purge jsdelivr
 
 # 推送后自动清 jsDelivr 边缘缓存。
 # 不做这件事的话，jsDelivr 的 s-maxage=43200 会让规则最多滞后 12 小时才生效。
+# 网络抖动或限流时自动重试（最多 3 次），避免单次故障误报失败。
 on:
   push:
     branches: [main]
@@ -54,22 +55,41 @@ jobs:
           fail=0
           for f in $files; do
             url="https://purge.jsdelivr.net/gh/${REPO}@${BRANCH}/${f}"
-            resp=$(curl -sS --max-time 60 "$url" || echo '{}')
+            attempt=0
+            status=""
+            throttled="1"
+            resp=""
 
-            # 只做扁平字符串提取，不引入 jq / python 依赖，便于本地离线验证。
-            flat=$(printf '%s' "$resp" | tr -d ' \n')
-            status=$(printf '%s' "$flat" | sed -n 's/.*"status":"\([^"]*\)".*/\1/p')
-            throttled=$(printf '%s' "$flat" | grep -c '"throttled":true' || true)
-            : "${status:=no-status}"
+            # 网络抖动和限流都会让 purge 失败；最多重试 3 次再报错，避免单次故障误红。
+            while [ "$attempt" -lt 3 ]; do
+              attempt=$((attempt + 1))
+              resp=$(curl -sS --max-time 60 "$url" 2>/dev/null) || resp=""
+              status=""
+              throttled="1"
+              if [ -n "$resp" ]; then
+                # 只做扁平字符串提取，不引入 jq / python 依赖，便于本地离线验证。
+                flat=$(printf '%s' "$resp" | tr -d ' \n')
+                status=$(printf '%s' "$flat" | sed -n 's/.*"status":"\([^"]*\)".*/\1/p')
+                throttled=$(printf '%s' "$flat" | grep -c '"throttled":true' || true)
+                : "${status:=no-status}"
+                if [ "$status" = "finished" ] && [ "$throttled" = "0" ]; then
+                  break
+                fi
+              fi
+              if [ "$attempt" -lt 3 ]; then
+                echo "attempt $attempt for $f: status=${status:-no-response}; retrying in $((attempt * 15))s"
+                sleep $((attempt * 15))
+              fi
+            done
 
-            echo "$f -> status=$status throttled=$throttled"
+            echo "$f -> status=$status throttled=$throttled attempts=$attempt"
 
             if [ "$status" != "finished" ]; then
-              echo "::error::purge failed for $f: $resp"
+              echo "::error::purge failed for $f after $attempt attempts: $resp"
               fail=1
             elif [ "$throttled" != "0" ]; then
               # 被限流意味着缓存没有真正清掉，需要稍后重试。
-              echo "::warning::purge throttled for $f, edge cache may still be stale"
+              echo "::warning::purge throttled for $f after $attempt attempts, edge cache may still be stale"
             fi
           done
 
