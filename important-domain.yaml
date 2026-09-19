@@ -1,6 +1,6 @@
 # 重要域名
 # behavior: classical
-# 用法: RULE-SET,important-domain,自选节点组
+# 用法: RULE-SET,important-domain,特选
 payload:
   - DOMAIN-SUFFIX,linux.do
   - DOMAIN-SUFFIX,anyrouter.top

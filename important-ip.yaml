@@ -1,4 +1,4 @@
 # 重要 IP
 # behavior: ipcidr
-# 用法: RULE-SET,important-ip,自选节点组,no-resolve
+# 用法: RULE-SET,important-ip,特选,no-resolve
 payload: []
