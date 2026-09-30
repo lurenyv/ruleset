@@ -6,7 +6,7 @@ name: purge jsdelivr
 on:
   push:
     branches: [main]
-    paths: ['**.yaml']
+    paths: ['**.yaml', '**.srs']
   workflow_dispatch:
 
 permissions:
@@ -40,10 +40,10 @@ jobs:
              || [ -z "${BEFORE:-}" ] \
              || [ "$BEFORE" = "0000000000000000000000000000000000000000" ] \
              || ! git cat-file -e "${BEFORE}^{commit}" 2>/dev/null; then
-            files=$(ls -1 *.yaml 2>/dev/null || true)
+            files=$(ls -1 *.yaml 2>/dev/null; ls -1 singbox/*.srs 2>/dev/null || true)
             echo "mode: all files"
           else
-            files=$(git diff --name-only --diff-filter=d "$BEFORE" "$SHA" -- '*.yaml')
+            files=$(git diff --name-only --diff-filter=d "$BEFORE" "$SHA" -- '*.yaml' 'singbox/*.srs')
             echo "mode: changed files since $BEFORE"
           fi
 
