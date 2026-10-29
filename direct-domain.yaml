@@ -32,14 +32,6 @@ payload:
   - DOMAIN-SUFFIX,665959.xyz
   - DOMAIN-SUFFIX,zzzcoding.org
   - DOMAIN-SUFFIX,snssdk.com
-  - DOMAIN-SUFFIX,amemv.com
-  - DOMAIN-SUFFIX,douyin.com
-  - DOMAIN-SUFFIX,iesdouyin.com
-  - DOMAIN-SUFFIX,bytedance.com
-  - DOMAIN-SUFFIX,byteimg.com
-  - DOMAIN-SUFFIX,pstatp.com
-  - DOMAIN-SUFFIX,toutiao.com
-  - DOMAIN-SUFFIX,cootek.com
   - DOMAIN-SUFFIX,touchpal.com
   - DOMAIN-SUFFIX,shouxinyuyan.com
   - DOMAIN-SUFFIX,quark.cn
@@ -50,11 +42,10 @@ payload:
   - DOMAIN-SUFFIX,878.indevs.in
   - DOMAIN-SUFFIX,hkai25.top
   - DOMAIN-SUFFIX,nihaox.cc.cd
+  - DOMAIN-SUFFIX,qwerw.cc.cd
   - DOMAIN-SUFFIX,gzcrtw.com
   - DOMAIN-SUFFIX,nuphyio.com
-  - DOMAIN-SUFFIX,workbuddy.link
   - DOMAIN-SUFFIX,tokenrhythm.studio
-  - DOMAIN-SUFFIX,oracle.com
   - DOMAIN-SUFFIX,lucky0625.qzz.io
   - DOMAIN-SUFFIX,121628.xyz
   - DOMAIN-SUFFIX,huaibao.top
@@ -67,7 +58,6 @@ payload:
   - DOMAIN-SUFFIX,2020111.xyz
   - DOMAIN-SUFFIX,ggrokheavy.com
   - DOMAIN-SUFFIX,qzjieguan.com
-  - DOMAIN-SUFFIX,ixbk.net
   - DOMAIN-SUFFIX,579298.xyz
   - DOMAIN-SUFFIX,wududu.edu.kg
   - DOMAIN-SUFFIX,sensenova.cn
